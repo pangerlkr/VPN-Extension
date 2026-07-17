@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>VeilRoute Settings</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="options-body">
+    <main class="options-shell">
+      <header>
+        <p class="eyebrow">Settings</p>
+        <h1>VeilRoute Proxy</h1>
+      </header>
+
+      <section class="settings-panel">
+        <label class="setting-row">
+          <span>
+            <strong>Reduce WebRTC IP leaks</strong>
+            <small>Asks Chrome to disable non-proxied UDP for WebRTC traffic.</small>
+          </span>
+          <input type="checkbox" id="webrtcToggle">
+        </label>
+      </section>
+
+      <section class="settings-panel">
+        <h2>Reality check</h2>
+        <p>
+          This extension controls Chromium browser proxy settings. It does not tunnel traffic from other apps,
+          replace OS-level VPN networking, or guarantee anonymity against fingerprinting, malware, DNS leaks outside
+          the browser, account login correlation, or a hostile proxy operator.
+        </p>
+      </section>
+    </main>
+    <script type="module" src="options.js"></script>
+  </body>
+</html>

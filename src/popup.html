@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>VeilRoute Proxy</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Browser Proxy</p>
+          <h1>VeilRoute</h1>
+        </div>
+        <button class="icon-button" id="settingsButton" title="Open settings" aria-label="Open settings">
+          <span aria-hidden="true">Settings</span>
+        </button>
+      </header>
+
+      <section class="status-panel" aria-live="polite">
+        <div class="connection-ring" id="connectionRing">
+          <span id="regionFlag">US</span>
+        </div>
+        <div class="status-copy">
+          <p id="statusLabel">Disconnected</p>
+          <strong id="regionLabel">New York, United States</strong>
+          <span id="ipLabel">IP not checked</span>
+          <span class="warning" id="warningLabel"></span>
+        </div>
+      </section>
+
+      <button class="power-button" id="powerButton" type="button">
+        <span id="powerText">Connect</span>
+      </button>
+
+      <section class="toolbar">
+        <button type="button" id="fastestButton">Fastest</button>
+        <button type="button" id="checkIpButton">Check IP</button>
+      </section>
+
+      <section class="regions" aria-label="Available regions">
+        <div class="section-head">
+          <h2>Regions</h2>
+          <span id="regionCount">0 online</span>
+        </div>
+        <div class="region-list" id="regionList"></div>
+      </section>
+    </main>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

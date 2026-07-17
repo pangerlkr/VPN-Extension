@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "VeilRoute Proxy",
+  "description": "Browser-only multi-region proxy controller prototype for Chromium browsers.",
+  "version": "0.1.0",
+  "minimum_chrome_version": "108",
+  "permissions": [
+    "proxy",
+    "privacy",
+    "storage",
+    "alarms",
+    "webRequest",
+    "webRequestAuthProvider"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "service-worker.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "VeilRoute Proxy",
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html"
+}

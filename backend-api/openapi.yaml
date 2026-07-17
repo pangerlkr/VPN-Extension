@@ -1,0 +1,146 @@
+openapi: 3.1.0
+info:
+  title: VeilRoute Control Plane API
+  version: 0.1.0
+  description: API contract for a browser proxy control plane.
+servers:
+  - url: https://api.veilroute.example.com/v1
+paths:
+  /regions:
+    get:
+      summary: List available proxy regions
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Region list and signature
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [regions, signature]
+                properties:
+                  regions:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Region"
+                  signature:
+                    type: string
+  /sessions:
+    post:
+      summary: Create short-lived proxy credentials for a region
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [regionId, deviceId]
+              properties:
+                regionId:
+                  type: string
+                deviceId:
+                  type: string
+      responses:
+        "201":
+          description: Proxy session
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProxySession"
+  /sessions/{sessionId}:
+    delete:
+      summary: Revoke a proxy session
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: sessionId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Revoked
+  /health/regions:
+    get:
+      summary: Internal regional health report
+      security:
+        - serviceAuth: []
+      responses:
+        "200":
+          description: Health by region
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+                  properties:
+                    healthy:
+                      type: boolean
+                    load:
+                      type: integer
+                    medianLatencyMs:
+                      type: integer
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+    serviceAuth:
+      type: http
+      scheme: bearer
+  schemas:
+    Region:
+      type: object
+      required: [id, country, city, endpoint, protocols, load]
+      properties:
+        id:
+          type: string
+        country:
+          type: string
+        city:
+          type: string
+        endpoint:
+          type: object
+          required: [host, port]
+          properties:
+            host:
+              type: string
+            port:
+              type: integer
+        protocols:
+          type: array
+          items:
+            enum: [https, socks5]
+        load:
+          type: integer
+          minimum: 0
+          maximum: 100
+    ProxySession:
+      type: object
+      required: [sessionId, regionId, endpoint, username, password, expiresAt]
+      properties:
+        sessionId:
+          type: string
+        regionId:
+          type: string
+        endpoint:
+          type: object
+          properties:
+            scheme:
+              enum: [https, socks5]
+            host:
+              type: string
+            port:
+              type: integer
+        username:
+          type: string
+        password:
+          type: string
+        expiresAt:
+          type: string
+          format: date-time
