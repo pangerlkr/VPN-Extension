@@ -19,6 +19,8 @@ This extension cannot, by itself, be a full device-level VPN. It will not tunnel
 
 The checked-in endpoints are placeholders under `*.proxy.example.com`. The extension intentionally blocks connection for those demo endpoints so it does not claim protection without a real gateway. Configure real endpoints in the options page (stored in local extension storage), or replace defaults in `src/regions.js`.
 
+For browser-specific installation steps (Chrome, Edge, Brave/Opera/Vivaldi, and Firefox compatibility status), see `docs/browser-installation.md`.
+
 ## Files
 
 - `src/manifest.json`: Manifest V3 extension config.
@@ -27,6 +29,7 @@ The checked-in endpoints are placeholders under `*.proxy.example.com`. The exten
 - `src/options.html`, `src/options.js`: Settings screen.
 - `backend-api/openapi.yaml`: Control-plane API contract.
 - `docs/architecture.md`: Multi-region server layout and production design.
+- `docs/browser-installation.md`: Browser installation steps and compatibility notes.
 - `docs/security-privacy.md`: Privacy boundaries, leak risks, and hardening checklist.
 
 ## Production Path
