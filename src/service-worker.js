@@ -66,7 +66,7 @@ const applyPrivacyRules = async (state) => {
 
 const enableProxy = async (region) => {
   if (!isProductionEndpoint(region)) {
-    throw new Error("This region still uses a placeholder gateway. Add a real proxy endpoint before connecting.");
+    throw new Error("This is only a Demo gateway: add a real proxy endpoint to connect.");
   }
   cachedAuth = region.auth || null;
   await chrome.proxy.settings.set({
@@ -137,7 +137,7 @@ chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
       if (state.enabled && !isProductionEndpoint(region)) {
         return {
           state: { ...state, enabled: false, lastConnectedAt: null },
-          error: "Add a real proxy endpoint for this region before connecting."
+          error: "This is only a Demo gateway: add a real proxy endpoint to connect."
         };
       }
       await chrome.storage.local.set(state);

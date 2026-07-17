@@ -38,7 +38,7 @@ const renderStatus = () => {
   elements.regionFlag.textContent = region.flag;
   elements.regionLabel.textContent = `${region.city}, ${region.country}`;
   elements.ipLabel.textContent = appState.lastKnownIp === "Not checked" ? "IP not checked" : `Visible IP: ${appState.lastKnownIp}`;
-  elements.warningLabel.textContent = region.ready ? "" : "Demo gateway: add a real proxy endpoint to connect.";
+  elements.warningLabel.textContent = region.ready ? "" : "This is only a Demo gateway: add a real proxy endpoint to connect.";
 };
 
 const renderRegions = () => {
