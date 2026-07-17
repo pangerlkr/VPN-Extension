@@ -292,3 +292,57 @@ h2 {
 .settings-panel p {
   color: var(--muted);
 }
+
+.config-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.config-grid label {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.config-grid input,
+.config-grid select {
+  height: 36px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0 10px;
+  background: #fff;
+  color: var(--ink);
+}
+
+.config-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.config-actions button {
+  min-height: 36px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--ink);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.config-status {
+  min-height: 18px;
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.config-status[data-tone="success"] {
+  color: var(--green);
+}
+
+.config-status[data-tone="error"] {
+  color: var(--red);
+}

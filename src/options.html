@@ -14,6 +14,47 @@
       </header>
 
       <section class="settings-panel">
+        <h2>Gateway configuration</h2>
+        <p>Attach real proxy endpoints to regions so the extension can connect.</p>
+        <div class="config-grid">
+          <label>
+            Region
+            <select id="regionSelect"></select>
+          </label>
+          <label>
+            Scheme
+            <select id="schemeInput">
+              <option value="https">https</option>
+              <option value="http">http</option>
+              <option value="socks5">socks5</option>
+              <option value="socks4">socks4</option>
+            </select>
+          </label>
+          <label>
+            Host
+            <input id="hostInput" type="text" placeholder="proxy.example.net">
+          </label>
+          <label>
+            Port
+            <input id="portInput" type="number" min="1" max="65535" placeholder="443">
+          </label>
+          <label>
+            Username
+            <input id="usernameInput" type="text" autocomplete="off">
+          </label>
+          <label>
+            Password
+            <input id="passwordInput" type="password" autocomplete="new-password">
+          </label>
+        </div>
+        <div class="config-actions">
+          <button id="saveRegionButton" type="button">Save region gateway</button>
+          <button id="resetRegionButton" type="button">Reset to default</button>
+        </div>
+        <p id="configStatus" class="config-status" aria-live="polite"></p>
+      </section>
+
+      <section class="settings-panel">
         <label class="setting-row">
           <span>
             <strong>Reduce WebRTC IP leaks</strong>

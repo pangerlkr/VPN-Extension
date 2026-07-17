@@ -42,7 +42,8 @@ const renderStatus = () => {
 };
 
 const renderRegions = () => {
-  elements.regionCount.textContent = `${regions.length} online`;
+  const readyCount = regions.filter((region) => region.ready).length;
+  elements.regionCount.textContent = `${readyCount}/${regions.length} ready`;
   elements.regionList.innerHTML = "";
 
   regions.forEach((region) => {
@@ -90,7 +91,8 @@ elements.powerButton.addEventListener("click", async () => {
 });
 
 elements.fastestButton.addEventListener("click", async () => {
-  const fastest = [...regions].sort((a, b) => a.latencyMs + a.load - (b.latencyMs + b.load))[0];
+  const candidates = regions.filter((region) => region.ready || region.id === appState.selectedRegionId);
+  const fastest = [...candidates].sort((a, b) => a.latencyMs + a.load - (b.latencyMs + b.load))[0];
   if (!fastest) return;
   setBusy(true);
   const response = await send({ type: "SET_REGION", regionId: fastest.id });
@@ -103,7 +105,7 @@ elements.checkIpButton.addEventListener("click", async () => {
   elements.ipLabel.textContent = "Checking visible IP...";
   try {
     const response = await send({ type: "CHECK_IP" });
-    appState.lastKnownIp = response.ip;
+    appState.lastKnownIp = response.error ? "Unavailable" : response.ip;
   } catch {
     appState.lastKnownIp = "Unavailable";
   }
