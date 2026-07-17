@@ -15,8 +15,9 @@ This extension cannot, by itself, be a full device-level VPN. It will not tunnel
 3. Choose "Load unpacked".
 4. Select the `src` folder in this package.
 5. Open the extension popup.
+6. Open Settings and configure at least one region with a real proxy host, port, and optional credentials.
 
-The checked-in endpoints are placeholders under `*.proxy.example.com`. The extension intentionally blocks connection for those demo endpoints so it does not claim protection without a real gateway. Replace them in `src/regions.js` with your real HTTPS or SOCKS5 proxy endpoints.
+The checked-in endpoints are placeholders under `*.proxy.example.com`. The extension intentionally blocks connection for those demo endpoints so it does not claim protection without a real gateway. Configure real endpoints in the options page (stored in local extension storage), or replace defaults in `src/regions.js`.
 
 ## Files
 

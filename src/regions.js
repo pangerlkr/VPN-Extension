@@ -86,6 +86,7 @@ export const DEFAULT_STATE = {
   selectedRegionId: "us-nyc",
   mode: "fixed_servers",
   blockWebRtc: true,
+  regionOverrides: {},
   lastConnectedAt: null,
   lastKnownIp: "Not checked"
 };
