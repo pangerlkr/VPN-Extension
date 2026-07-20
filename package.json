@@ -1,0 +1,35 @@
+{
+  "name": "@pangerlkr/veilroute-proxy",
+  "version": "1.1.0",
+  "description": "Production-ready multi-region browser proxy extension for Chrome 116+. HTTPS/SOCKS proxy with WebRTC leak protection",
+  "main": "src/service-worker.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pangerlkr/VPN-Extension.git"
+  },
+  "keywords": [
+    "chrome-extension",
+    "proxy",
+    "vpn",
+    "privacy",
+    "webrtc",
+    "https-proxy",
+    "socks-proxy",
+    "multi-region",
+    "browser-extension"
+  ],
+  "author": "pangerlkr",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pangerlkr/VPN-Extension/issues"
+  },
+  "homepage": "https://pangerlkr.github.io/VPN-Extension/",
+  "files": [
+    "src/",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@pangerlkr"
+  }
+}
