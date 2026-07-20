@@ -1,14 +1,11 @@
-# VeilRoute Proxy — Production v1.0.0
-
+# VeilRoute Proxy — Production v1.1.0
 **Multi-region browser proxy extension for Chromium browsers**  
-Real-time IP verification | WebRTC leak protection | Authenticated gateway support | 18 global regions
-
+Real-time IP verification | WebRTC leak protection | Authenticated gateway support | 37 global regions
 ---
 
 ## Production Status
 
-**Release Status**: Production-ready v1.0.0 (2026-07-18)  
-**Extension Type**: Browser proxy client for authenticated HTTPS/SOCKS gateways  
+**Release Status**: Production-ready v1.1.0 (2026-07-20)**Extension Type**: Browser proxy client for authenticated HTTPS/SOCKS gateways  
 **Target Platform**: Chrome 116+, Edge 116+, Chromium-based browsers  
 **Manifest Version**: V3 (Chrome Extension Manifest V3 compliant)
 
@@ -17,8 +14,7 @@ The core extension (manifest, service worker, UI, options) has been upgraded to 
 | Component | Status | Details |
 |-----------|--------|----------|
 | Service Worker | Hardened | Input validation, error handling, reconnect logic |
-| Region Definitions | Complete | 18 regions across 5 continents with emoji flags |
-| Manifest | Production | MV3 compliant, notifications, alarms, strict CSP |
+| Region Definitions | Complete | 37 regions across 6 continents with emoji flags || Manifest | Production | MV3 compliant, notifications, alarms, strict CSP |
 | Proxy Auth | Implemented | HTTPS/SOCKS4/SOCKS5 with credential handling |
 | Runtime Validation | Active | Scheme/host/port checks, demo endpoint blocking |
 | State Persistence | Tested | Survives browser restart, handles disconnects |
